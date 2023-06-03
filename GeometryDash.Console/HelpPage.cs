@@ -5,7 +5,7 @@ internal static class HelpPage
     internal static int Show()
     {
         System.Console.WriteLine(@"
-Usage: GeometryDash.Console.exe <command> ...options
+Usage: gd <command> ...options
 
 Commands:
   pack <dat file> <destination xml file>
