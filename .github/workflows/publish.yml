@@ -1,0 +1,29 @@
+name: Publish
+
+on:
+  release:
+    types: [ created ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: |
+          3.1.x
+          6.0.x
+          7.0.x
+    - name: Set Version
+      run: echo ${{ github.ref_name }} | sed -r "s/^v/GDTOOL_VERSION=/" >> $GITHUB_ENV
+    - name: Restore dependencies
+      run: dotnet restore ./GeometryDash.Console.sln
+    - name: Release build
+      run: dotnet build -c Release ./GeometryDash.Console/GeometryDash.Console.csproj
+    - name: Pack
+      run: dotnet pack -c Release -o ./pack/ /p:PackageVersion=$GDTOOL_VERSION ./GeometryDash.Console/GeometryDash.Console.csproj
+    - name: Push to NuGet
+      run: dotnet nuget push ./pack/GeometryDash.Console*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
+      
