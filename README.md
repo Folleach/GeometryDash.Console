@@ -8,7 +8,7 @@ dotnet tool install --global GeometryDash.Console --version 1.0.2
 
 # Commands
 
-## pack
+## unpack
 
 **Unpacking .dat file to .xml (.plist)**
 
@@ -18,7 +18,7 @@ gd unpack CCLocalLevels.dat levels.xml
 
 After executing the command, a file will be created (or overwritten): `levels.xml`
 
-## unpack
+## pack
 
 **Packing .xml file to .dat**
 
