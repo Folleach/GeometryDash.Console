@@ -12,7 +12,8 @@ if (pargs.Contains("help") && pargs.Contains("h"))
 var commands = new Dictionary<string, Func<ICommand>>()
 {
     ["unpack"] = () => new UnpackDataFile(),
-    ["pack"] = () => new PackDataFile()
+    ["pack"] = () => new PackDataFile(),
+    ["featured"] = () => new FeaturesCommand()
 };
 
 var commandName = args[0];

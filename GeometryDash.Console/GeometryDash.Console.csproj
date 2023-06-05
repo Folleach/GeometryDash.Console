@@ -14,7 +14,7 @@
 
     <ItemGroup>
       <PackageReference Include="Folleach.ConsoleUtils" Version="1.0.0" />
-      <PackageReference Include="GeometryDashAPI" Version="0.2.9" />
+      <PackageReference Include="GeometryDashAPI" Version="0.2.12" />
     </ItemGroup>
 
 </Project>
