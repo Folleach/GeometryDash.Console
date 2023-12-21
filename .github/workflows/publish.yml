@@ -34,7 +34,7 @@ jobs:
     strategy:
       matrix:
         runtime: [ linux-x64, win-x64 ]
-        project: [ DatPack ]
+        project: [ DatPack, LevelPack ]
     steps:
       - uses: actions/checkout@v3
       - name: Setup .NET

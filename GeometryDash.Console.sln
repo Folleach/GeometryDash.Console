@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeometryDash.Console", "Geo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatPack", "DatPack\DatPack.csproj", "{95D74623-4FBB-4E22-B234-66AE6177C674}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LevelPack", "LevelPack\LevelPack.csproj", "{184612A1-AD36-40E9-B712-7264AFF1AE1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{B392233A-49AB-4D13-ADAB-C6D6318F1B98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{95D74623-4FBB-4E22-B234-66AE6177C674}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95D74623-4FBB-4E22-B234-66AE6177C674}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95D74623-4FBB-4E22-B234-66AE6177C674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{184612A1-AD36-40E9-B712-7264AFF1AE1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{184612A1-AD36-40E9-B712-7264AFF1AE1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{184612A1-AD36-40E9-B712-7264AFF1AE1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{184612A1-AD36-40E9-B712-7264AFF1AE1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B392233A-49AB-4D13-ADAB-C6D6318F1B98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B392233A-49AB-4D13-ADAB-C6D6318F1B98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B392233A-49AB-4D13-ADAB-C6D6318F1B98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B392233A-49AB-4D13-ADAB-C6D6318F1B98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
