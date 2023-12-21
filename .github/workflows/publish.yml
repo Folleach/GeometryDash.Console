@@ -45,7 +45,7 @@ jobs:
       - name: publish
         run: dotnet publish ./${{ matrix.project }}/${{ matrix.project }}.csproj -r ${{ matrix.runtime }} -p:PublishSingleFile=true --self-contained true
       - name: move to directory
-        run: cd ./${{ matrix.project }}/bin/net8.0/${{ matrix.runtime }}/publish
+        run: cd ./${{ matrix.project }}/bin/Release/net8.0/${{ matrix.runtime }}/publish
       - name: remove pdb
         run: rm *.pdb
       - name: pass runtime to executable
@@ -63,4 +63,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./${{ matrix.project }}/bin/net8.0/${{ matrix.runtime }}/publish
+            ./${{ matrix.project }}/bin/Release/net8.0/${{ matrix.runtime }}/publish
