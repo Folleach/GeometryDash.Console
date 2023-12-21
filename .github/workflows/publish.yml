@@ -28,6 +28,9 @@ jobs:
         run: dotnet nuget push ./pack/GeometryDash.Console*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
   independent:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
     strategy:
       matrix:
         runtime: [ linux-x64, win-x64 ]
