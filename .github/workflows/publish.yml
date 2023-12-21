@@ -46,7 +46,7 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore ./GeometryDash.Console.sln
       - name: publish
-        run: dotnet publish ./${{ matrix.project }}/${{ matrix.project }}.csproj -r ${{ matrix.runtime }} -p:PublishSingleFile=true --self-contained true
+        run: dotnet publish ./${{ matrix.project }}/${{ matrix.project }}.csproj -r ${{ matrix.runtime }} -p:Version=$GDTOOL_VERSION -p:PublishSingleFile=true --self-contained true
       - name: edit binaries
         run: |
           cd ./${{ matrix.project }}/bin/Release/net8.0/${{ matrix.runtime }}/publish

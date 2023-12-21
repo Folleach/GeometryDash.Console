@@ -10,8 +10,7 @@ int Error(string message)
     Console.WriteLine(message);
     Console.ForegroundColor = color;
     Console.WriteLine("usage: datpack <file_name>");
-    var file = System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
-    Console.WriteLine($"version: {file.FileVersion}");
+    Console.WriteLine($"version: {Assembly.GetExecutingAssembly().GetName().Version}");
     Console.ForegroundColor = ConsoleColor.DarkGray;
     Console.WriteLine("press any key to exit...");
     Console.ForegroundColor = color;
