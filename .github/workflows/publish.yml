@@ -44,13 +44,11 @@ jobs:
         run: dotnet restore ./GeometryDash.Console.sln
       - name: publish
         run: dotnet publish ./${{ matrix.project }}/${{ matrix.project }}.csproj -r ${{ matrix.runtime }} -p:PublishSingleFile=true --self-contained true
-      - name: move to directory
-        run: cd ./${{ matrix.project }}/bin/Release/net8.0/${{ matrix.runtime }}/publish
-      - name: remove pdb
-        run: rm *.pdb
-      - name: pass runtime to executable
+      - name: edit binaries
         run: |
-           for file in *; do
+          cd ./${{ matrix.project }}/bin/Release/net8.0/${{ matrix.runtime }}/publish
+          rm *.pdb
+          for file in *; do
              if [[ $file == *.* ]]; then
                base="${file%.*}"
                ext="${file##*.}"
