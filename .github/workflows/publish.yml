@@ -64,4 +64,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./${{ matrix.project }}/bin/Release/net8.0/${{ matrix.runtime }}/publish
+            ./${{ matrix.project }}/bin/Release/net8.0/${{ matrix.runtime }}/publish/*
