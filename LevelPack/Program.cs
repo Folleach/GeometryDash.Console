@@ -75,7 +75,10 @@ if (args.Length != 1 && args.Length != 2)
 var jsonSettings = new JsonSerializerSettings()
 {
     TypeNameHandling = TypeNameHandling.Auto,
-    Formatting = Formatting.Indented
+    Formatting = Formatting.Indented,
+    ContractResolver = new IgnorePropertiesResolver<Level>(
+        x => x.Colors
+    )
 };
 var encoding = Encoding.UTF8;
 var source = args[0];
