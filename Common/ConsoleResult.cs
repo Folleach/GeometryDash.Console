@@ -5,13 +5,13 @@ namespace Common;
 
 public static class ConsoleResult
 {
-    public static int Error(string message)
+    public static int Error(string message, string usage)
     {
         var color = Console.ForegroundColor;
         Console.ForegroundColor = ConsoleColor.DarkRed;
         Console.WriteLine(message);
         Console.ForegroundColor = color;
-        Console.WriteLine("usage: datpack <file_name>");
+        Console.WriteLine(usage);
         Console.WriteLine($"version: {Assembly.GetExecutingAssembly().GetName().Version}");
         Console.ForegroundColor = ConsoleColor.DarkGray;
         Console.WriteLine("press any key to exit...");

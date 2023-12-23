@@ -4,15 +4,17 @@ using GeometryDashAPI.Serialization;
 using static Common.ConsoleResult;
 using static Common.FileHelper;
 
+var usage = "usage: datpack <file_name>";
+
 if (args.Length != 1)
-    return Error("the file isn't specified");
+    return Error("the file isn't specified", usage);
 
 var source = args[0];
 if (!File.Exists(source))
-    return Error("file doesn't exists");
+    return Error("file doesn't exists", usage);
 
 var bytes = File.ReadAllBytes(source);
-if (source.EndsWith(".dat") || bytes.AsSpan().IndexOf("C?"u8) == 0)
+if (source.EndsWith(".dat") || bytes.AsSpan().IndexOf(DatSignature) == 0)
 {
     var data = new GameData();
     data.LoadAsync(source).GetAwaiter().GetResult();
@@ -26,7 +28,7 @@ if (source.EndsWith(".dat") || bytes.AsSpan().IndexOf("C?"u8) == 0)
     return Ok();
 }
 
-if (source.EndsWith(".xml") || bytes.AsSpan().IndexOf("?xml"u8) >= 0)
+if (IsXml(source, bytes))
 {
     var file = new FileStream(source, FileMode.Open, FileAccess.Read, FileShare.Read);
     var data = new GameData
@@ -37,4 +39,4 @@ if (source.EndsWith(".xml") || bytes.AsSpan().IndexOf("?xml"u8) >= 0)
     return Ok();
 }
 
-return Error($"unknown file format: '{source.Split(".").LastOrDefault()}'");
+return Error($"unknown file format: '{source.Split(".").LastOrDefault()}'", usage);
