@@ -164,13 +164,13 @@ if (targets == null)
 void PrintLevel(LevelCreatorModel level, int index, SelectLevelMode mode)
 {
     var color = Console.ForegroundColor;
-    Console.Write($"{index}. {level.Name}");
+    Console.Write($"{index}. {level.Name ?? "(undefined level name)"}");
     if (mode == SelectLevelMode.Copy)
     {
         Console.ForegroundColor = ConsoleColor.DarkGray;
         Console.Write(" by ");
         Console.ForegroundColor = color;
-        Console.Write(level.AuthorName);
+        Console.Write(level.AuthorName ?? "(undefined author name)");
         Console.ForegroundColor = ConsoleColor.DarkGray;
         var id = level.DataLevel.TryGetValue("k42", out var idk42)
             ? idk42
@@ -226,7 +226,7 @@ LevelCreatorModel? SelectLevel(ICollection<LevelCreatorModel> local, SelectLevel
         }
 
         var levels = local
-            .Where(x => x.Name.Equals(input, StringComparison.OrdinalIgnoreCase))
+            .Where(x => x.Name?.Equals(input, StringComparison.OrdinalIgnoreCase) == true)
             .ToArray();
         switch (levels.Length)
         {

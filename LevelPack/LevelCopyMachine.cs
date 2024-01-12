@@ -16,7 +16,7 @@ public static class LevelCopyMachine
 
     public static LevelCreatorModel CreateCopy(LevelCreatorModel model, string author)
     {
-        var result = LevelCreatorModel.CreateNew($"{model.Name} 2", author);
+        var result = LevelCreatorModel.CreateNew($"{model.Name ?? "undefined"} 2", author ?? "undefined");
         foreach (var (key, value) in model.DataLevel)
         {
             if (ExcludeInCopy.Contains(key))

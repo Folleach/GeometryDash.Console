@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="GeometryDashAPI" Version="0.2.22" />
+      <PackageReference Include="GeometryDashAPI" Version="0.2.26" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
